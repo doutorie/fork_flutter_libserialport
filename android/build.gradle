@@ -28,6 +28,7 @@ android {
     compileSdk = 34
 
     compileOptions {
+        // Alterar para a mesma versão local
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -40,6 +41,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
+        // Alterar para o minSdk do aplicativo
         minSdk = 21
     }
     lintOptions {
