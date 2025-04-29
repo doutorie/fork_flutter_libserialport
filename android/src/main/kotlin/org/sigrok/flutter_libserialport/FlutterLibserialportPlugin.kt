@@ -15,11 +15,15 @@ class FlutterLibserialportPlugin: FlutterPlugin, MethodCallHandler {
         channel.setMethodCallHandler(this)
     }
 
-    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
+    override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
+        if (call.method == "getPlatformVersion") {
+            result.success("Android ${android.os.Build.VERSION.RELEASE}")
+        } else {
+            result.notImplemented()
+        }
     }
 
-    override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        // lidar com chamadas
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        channel.setMethodCallHandler(null)
     }
 }
